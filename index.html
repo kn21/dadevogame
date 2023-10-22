@@ -14,7 +14,7 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('2');
     //variables
     //update counter
     function newcount(count) {
@@ -32,10 +32,13 @@
     devo.width = 100;
     devo.height = 100;
     devo.style.position = 'fixed';
-    devo.style.top = '200px';
-    devo.style.left = '200px';
+    //devo position
+    var x = 50;
+    var y = 300;
+    devo.style.top = '${x}px';
+    devo.style.left = '${y}px';
     document.body.appendChild(devo);
-    //change count
+    //change count with
     var count = 0;
     document.addEventListener('keydown', inccount);
   </script>
