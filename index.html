@@ -7,7 +7,7 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('2');
+    alert('1');
     //variables
     //update counter
     function newcount(count) {
@@ -23,17 +23,19 @@
     function keypress(event) {
       switch(event.key){
         case 'ArrowUp':
+          y--;
           break;
         case 'ArrowDown':
+          y++;
           break;
         case 'ArrowLeft':
+          x--;
           break;
         case 'ArrowRight':
+          x++;
           break;
         default: return;
       }
-      x++;
-      y++;
     }
     //key
     document.addEventListener('keydown', keypress);
