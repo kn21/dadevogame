@@ -13,15 +13,16 @@
 <body>
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
-    alert('5');
+    alert('6');
     //counter
     function inccount(count) {
       var countspan = document.getElementById('varcount');
       countspan.textContent = count;
     }
-    var count = 0;
-    count++;
-    inccount(count);
+    for (i = 0; i < 10; i++)
+      {
+        inccount(i);
+      }
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
