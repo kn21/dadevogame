@@ -11,12 +11,14 @@
   </style>
 </head>
 <body>
-  <div class = 'countertext' id = 'textContainer'></div>
+  <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //counter
-    var counter = document.createTextNode("Counter:"):
-    var countercont = document.getElementById('textContainer');
-    countercont.appendChild(counter):
+    function inccount() {
+      var countspan = document.getElementById('varcount');
+      var count = 1;
+      countspan.textContent = count;
+    }
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
@@ -26,7 +28,7 @@
     devo.style.top = '200px';
     devo.style.left = '200px';
     document.body.appendChild(devo);
-    alert("7");
+    alert("8");
   </script>
 </body>
 </html>
