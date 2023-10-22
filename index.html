@@ -14,18 +14,23 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('2');
     //variables
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
       countspan.textContent = count;
     }
-    //increase count at key
-    function inccount(event) {
+    //increase count
+    function inccount(count) {
       count+= 1;
       newcount(count);
-      }
+    }
+    //input key
+    function keypress(event) {
+      x++;
+      y++;
+    }
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
@@ -34,13 +39,14 @@
     devo.style.position = 'fixed';
     //devo position
     var x = 50;
-    var y = 300;
+    var y = 350;
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
-    //change count with
+    //key
+    document.addEventListener('keydown', keypress);
+    //change count
     var count = 0;
-    document.addEventListener('keydown', inccount);
   </script>
 </body>
 </html>
