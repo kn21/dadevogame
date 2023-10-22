@@ -14,9 +14,8 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('2');
     //variables
-    var count;
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -37,7 +36,7 @@
     devo.style.left = '200px';
     document.body.appendChild(devo);
     //change count
-    count = 0;
+    var count = 0;
     document.addEventListener('keydown', inccount);
   </script>
 </body>
