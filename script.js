@@ -1,6 +1,6 @@
 //counter
-var counter = document.createTextNode("1"):
-document.body.appendChild(counter):
+//var counter = document.createTextNode("1"):
+//document.body.appendChild(counter):
 //Devo sprite
 var devo = document.createElement('img');
 devo.src = 'devo.png';
