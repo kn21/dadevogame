@@ -10,3 +10,4 @@ devo.style.position = 'fixed';
 devo.style.top = '200px';
 devo.style.left = '200px';
 document.body.appendChild(devo);
+alert("1");
