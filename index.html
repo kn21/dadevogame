@@ -14,11 +14,11 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //counter
-    function inccount() {
+    function inccount(count) {
       var countspan = document.getElementById('varcount');
-      var count = 1;
       countspan.textContent = count;
     }
+    incount(1);
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
@@ -28,7 +28,7 @@
     devo.style.top = '200px';
     devo.style.left = '200px';
     document.body.appendChild(devo);
-    alert("8");
+    alert("9");
   </script>
 </body>
 </html>
