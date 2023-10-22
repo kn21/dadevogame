@@ -1,6 +1,6 @@
 //counter
-//var counter = document.createTextNode("1"):
-//document.body.appendChild(counter):
+var counter = document.createTextNode("Counter"):
+document.body.appendChild(counter):
 //Devo sprite
 var devo = document.createElement('img');
 devo.src = 'devo.png';
@@ -10,4 +10,4 @@ devo.style.position = 'fixed';
 devo.style.top = '200px';
 devo.style.left = '200px';
 document.body.appendChild(devo);
-alert("1");
+alert("2");
