@@ -2,12 +2,21 @@
 <html>
 <head>
   <title>Da Devo Game</title>
+  <style>
+    .countertext {
+      position: fixed;
+      top: 500px;
+      left: 50px;
+    }
+  </style>
 </head>
 <body>
+  <div class = 'countertext' id = 'textContainer></div>
   <script>
     //counter
-    var counter = document.createTextNode("Counter"):
-    document.body.appendChild(counter):
+    var counter = document.createTextNode("Counter:"):
+    var countercont = document.getElementById('textContainer');
+    countercont.appendChild(counter):
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
@@ -17,7 +26,7 @@
     devo.style.top = '200px';
     devo.style.left = '200px';
     document.body.appendChild(devo);
-    alert("3");
+    alert("5");
     //<script src="script.js"> 
   </script>
 </body>
