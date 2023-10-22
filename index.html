@@ -14,7 +14,7 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('7');
+    alert('8');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -25,6 +25,7 @@
       {
         return function(event){
           count += 1;
+          newcount(count)
         };
       }
     function inc
