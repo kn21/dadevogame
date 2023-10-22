@@ -2,19 +2,12 @@
 <html>
 <head>
   <title>Da Devo Game</title>
-  <style>
-    .countertext {
-      position: fixed;
-      top: 500px;
-      left: 50px;
-    }
-  </style>
 </head>
 <body>
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('2');
+    alert('1');
     //variables
     //update counter
     function newcount(count) {
@@ -31,6 +24,8 @@
       x++;
       y++;
     }
+    //key
+    document.addEventListener('keydown', keypress);
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
@@ -43,8 +38,6 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
-    //key
-    document.addEventListener('keydown', keypress);
     //change count
     var count = 0;
   </script>
