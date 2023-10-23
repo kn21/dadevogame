@@ -20,7 +20,7 @@
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('0');
+    alert('meow');
     //variables
     //update counter
     function newcount(count) {
@@ -38,6 +38,10 @@
       keys[event.keyCode] = true;
       dy = (keys[38]||keys[87])? -1 : (keys[83]||keys[40])? 1 : 0; //up down
       dx = (keys[65]||keys[37])? -1 : (keys[68]||keys[39])? 1 : 0; //left right
+      if (keys[32]) {
+         devo.src = 'devo_win.png';
+      }
+
     }
     function keyrelease(event) {
       keys[event.keyCode] = false;
