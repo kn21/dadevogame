@@ -18,7 +18,7 @@
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('0');
     //variables
     //update counter
     function newcount(count) {
@@ -31,7 +31,9 @@
       newcount(count);
     }
     //move devo based on input key
+    var keys = {};
     function keypress(event) {
+      keys[event.keyCode] = true;
       switch(event.keyCode){
         case 38: case 87: //up
           dy = -1;
@@ -53,6 +55,7 @@
       }
     }
     function keyrelease(event) {
+      keys[event.keyCode] = false;
       dx = 0;
       dy = 0;
     }
