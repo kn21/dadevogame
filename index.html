@@ -39,7 +39,8 @@
       dy = (keys[38]||keys[87])? -1 : (keys[83]||keys[40])? 1 : 0; //up down
       dx = (keys[65]||keys[37])? -1 : (keys[68]||keys[39])? 1 : 0; //left right
       if (keys[32]) {
-         devosrc = 'devo_win.png';
+        devosrc = 'devo_win.png';
+        devo.src = devosrc;
       }
 
     }
@@ -48,6 +49,7 @@
       dx = 0;
       dy = 0;
       devosrc = 'devo.png';
+      devo.src = devosrc;
     }
     function move() {
       if (x < 0 || x > 1280) {
