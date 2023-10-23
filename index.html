@@ -15,10 +15,10 @@
         font-size: 24px;
       }
   </style>
-  <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
+  <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('3');
     //variables
     //update counter
     function newcount(count) {
@@ -53,8 +53,8 @@
       dy = 0;
     }
     function move() {
-      x+= dx;
-      y+= dy;
+      x+= dx*devospeed;
+      y+= dy*devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
       requestAnimationFrame(move);
