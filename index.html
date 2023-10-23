@@ -8,6 +8,8 @@
       body {
         margin: 0;
         overflow: hidden;
+        background-image: url('bg_grass.jpg');
+        background-size: cover;
       }
       .counter {
         font-family: "Comic Sans MS", cursive;
@@ -57,6 +59,12 @@
       devo.style.top = y + 'px';
       requestAnimationFrame(move);
     }
+    //move bone
+    function bmove() {
+      bx+= dbx*bspeed;
+      bone.style.left = x + 'px';
+      requestAnimationFrame(bmove);
+    }
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
@@ -75,10 +83,25 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
+    //Milkbone sprite
+    var bone = document.createElement('img');
+    bone.src = 'milkbone.png';
+    bone.width = 100;
+    bone.height = 100;
+    bone.style.position = 'absolute';
+    //bone position
+    var bx = 1280;
+    var by = Math.floor(Math.random() * 721);
+    var dbx = -1;
+    var bspeed = 25;
+    bone.style.left = bx+'px';
+    bone.style.top = by+'px';
+    document.body.appendChild(bone);
     //change count
     var count = 0;
     //move
     requestAnimationFrame(move);
+    requestAnimationFrame(bmove);
   </script>
 </body>
 </html>
