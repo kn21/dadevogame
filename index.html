@@ -13,7 +13,7 @@
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('2');
     //variables
     //update counter
     function newcount(count) {
@@ -29,16 +29,16 @@
     function keypress(event) {
       switch(event.keyCode){
         case 38: case 87: //up
-          y--;
+          y-= devospeed;
           break;
         case 65: case 37: //left
-          x--;
+          x-= devospeed;
           break;
         case 83: case 40: //down
-          y++;
+          y+= devospeed;
           break;
         case 68: case 39: //right
-          x++;
+          x+= devospeed;
           break;
         default: return;
       }
@@ -56,6 +56,7 @@
     //devo position
     var x = 50;
     var y = 350;
+    var devospeed = 100;
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
