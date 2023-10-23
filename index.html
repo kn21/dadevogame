@@ -4,10 +4,16 @@
   <title>Da Devo Game</title>
 </head>
 <body>
+  <style>
+      body {
+          margin: 0;
+          overflow: hidden;
+      }
+  </style>
   <p id = 'counter'>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('2');
+    alert('1');
     //variables
     //update counter
     function newcount(count) {
@@ -36,6 +42,8 @@
           break;
         default: return;
       }
+      devo.style.left = x + 'px';
+      devo.style.top = y + 'px';
     }
     //key
     document.addEventListener('keydown', keypress);
