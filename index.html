@@ -13,14 +13,14 @@
       }
       .counter {
         font-family: "Comic Sans MS", cursive;
-        color: #000;
+        color: white;
         font-size: 24px;
       }
   </style>
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('0');
     //variables
     //update counter
     function newcount(count) {
@@ -62,7 +62,7 @@
     //move bone
     function bmove() {
       bx+= dbx*bspeed;
-      bone.style.left = x + 'px';
+      bone.style.left = bx + 'px';
       requestAnimationFrame(bmove);
     }
     //get key
