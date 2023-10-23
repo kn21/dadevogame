@@ -18,7 +18,7 @@
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('0');
+    alert('1');
     //variables
     //update counter
     function newcount(count) {
@@ -34,25 +34,8 @@
     var keys = {};
     function keypress(event) {
       keys[event.keyCode] = true;
-      switch(event.keyCode){
-        case 38: case 87: //up
-          dy = -1;
-          break;
-        case 65: case 37: //left
-          dx = -1
-          break;
-        case 83: case 40: //down
-          dy = 1;
-          break;
-        case 68: case 39: //right
-          dx = 1;
-          break;
-        case 32: //space
-          x = 0;
-          y = 0;
-          break;
-        default: return;
-      }
+      dy = (keys[38]||keys[87]) -1 : (keys[83]||keys[40]) 1 : 0; //up down
+      dy = (keys[65]||keys[37]) -1 : (keys[68]||keys[39]) 1 : 0; //left right
     }
     function keyrelease(event) {
       keys[event.keyCode] = false;
