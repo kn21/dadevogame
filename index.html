@@ -48,6 +48,10 @@
         default: return;
       }
     }
+    function keyrelease(event) {
+      dx = 0;
+      dy = 0;
+    }
     function move() {
       x+= dx;
       y+= dy;
@@ -57,6 +61,7 @@
     }
     //get key
     document.addEventListener('keydown', keypress);
+    document.addEventListener('keyup', keyrelease);
     //Devo sprite
     var devo = document.createElement('img');
     devo.src = 'devo.png';
