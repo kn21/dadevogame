@@ -54,11 +54,11 @@
     }
     function move() {
       if (x < 0 || x > 1280) {
-        x = 10;
+        x += -1*dx*10;
         dx = 0;
       }
       if (y < 0 || y > 720) {
-        y = 10;
+        y += -1*dy*10;
         dy = 0;
       }
       x+= dx*devospeed;
