@@ -18,7 +18,7 @@
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('1');
+    alert('0');
     //variables
     //update counter
     function newcount(count) {
@@ -54,11 +54,11 @@
     }
     function move() {
       if (x < 0 || x > 1280) {
-        x += -1*dx*10;
+        x += devospeed*-1*dx;
         dx = 0;
       }
       if (y < 0 || y > 720) {
-        y += -1*dy*10;
+        y += devospeed*-1*dy;
         dy = 0;
       }
       x+= dx*devospeed;
