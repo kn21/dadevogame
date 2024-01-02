@@ -32,6 +32,22 @@
       count+= 1;
       newcount(count);
     }
+    //collisions class
+    class Col {
+      constructor(img) {
+        this.img = img;
+        this.sprite = document.createElement('img');
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+        this.sprite.src = this.img;
+        this.sprite.width = 100;
+        this.sprite.height = 100;
+        this.sprite.position = 'absolute';
+        this.sprite.style.left = this.x+'px';
+        this.sprite.style.top = this.y+'px';
+        document.body.appendChild(this.sprite);
+      }
+    }
     //move devo based on input key
     var keys = {};
     function keypress(event) {
@@ -91,22 +107,6 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
-    //collisions class
-    class Col {
-      constructor(img) {
-        this.img = img;
-        this.sprite = document.createElement('img');
-        this.x = 1280;
-        this.y = Math.floor(Math.random() * 721);
-        this.sprite.src = this.img;
-        this.sprite.width = 100;
-        this.sprite.height = 100;
-        this.sprite.position = 'absolute';
-        this.sprite.style.left = this.x+'px';
-        this.sprite.style.top = this.y+'px';
-        document.body.appendChild(this.sprite);
-      }
-    }
     const bone = new Col('milkbone.png');
     <!--
       alert('nah');
@@ -129,7 +129,7 @@
     var count = 0;
     //move
     requestAnimationFrame(move);
-    //requestAnimationFrame(bmove);
+    requestAnimationFrame(bmove);
   </script>
 </body>
 </html>
