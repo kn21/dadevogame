@@ -98,14 +98,14 @@
         this.sprite = document.createElement('img');
         this.x = 1280;
         this.y = Math.floor(Math.random() * 721);
+        this.sprite.src = this.img;
+        this.sprite.width = 100;
+        this.sprite.height = 100;
+        this.sprite.position = 'absolute';
+        this.sprite.style.left = this.x+'px';
+        this.sprite.style.top = this.y+'px';
+        document.body.appendChild(this.sprite);
       }
-      this.sprite.src = img;
-      this.sprite.width = 100;
-      this.sprite.height = 100;
-      this.sprite.position = 'absolute';
-      this.sprite.style.left = this.x+'px';
-      this.sprite.style.top = this.y+'px';
-      document.body.appendChild(this.sprite);
     }
     const bone = new Col('milkbone.png');
     <!--
