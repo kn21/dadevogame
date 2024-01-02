@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Da Devo Game</title>
-</head>
-<body>
   <style>
       body {
         margin: 0;
@@ -17,8 +17,11 @@
         font-size: 24px;
       }
   </style>
+  </head>
+  <body>
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
-  <script>
+ 
+    <script>
     //alert change
     alert('1');
     //variables
@@ -108,23 +111,6 @@
     devo.style.top = y+'px';
     document.body.appendChild(devo);
     const bone = new Col('milkbone.png');
-    <!--
-      alert('nah');
-    //Milkbone sprite
-    var bone = document.createElement('img');
-    bone.src = 'milkbone.png';
-    bone.width = 100;
-    bone.height = 100;
-    bone.style.position = 'absolute';
-    //bone position
-    var bx = 1280;
-    var by = Math.floor(Math.random() * 721);
-    var dbx = -1;
-    var bspeed = 25;
-    bone.style.left = bx+'px';
-    bone.style.top = by+'px';
-    document.body.appendChild(bone);
-    -->
     //change count
     var count = 0;
     //move
