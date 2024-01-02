@@ -20,7 +20,7 @@
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
   <script>
     //alert change
-    alert('meow');
+    alert('1');
     //variables
     //update counter
     function newcount(count) {
@@ -91,6 +91,25 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
+    //collisions class
+    class Col {
+      constructor(img) {
+        this.img = img;
+        this.sprite = document.createElement('img');
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+      }
+      this.sprite.src = img;
+      this.sprite.width = 100;
+      this.sprite.height = 100;
+      this.sprite.position = 'absolute';
+      this.sprite.style.left = this.x+'px';
+      this.sprite.style.top = this.y+'px';
+      document.body.appendChild(this.sprite);
+    }
+    const bone = new Col('milkbone.png');
+    <!--
+      alert('nah');
     //Milkbone sprite
     var bone = document.createElement('img');
     bone.src = 'milkbone.png';
@@ -105,11 +124,12 @@
     bone.style.left = bx+'px';
     bone.style.top = by+'px';
     document.body.appendChild(bone);
+    -->
     //change count
     var count = 0;
     //move
     requestAnimationFrame(move);
-    requestAnimationFrame(bmove);
+    //requestAnimationFrame(bmove);
   </script>
 </body>
 </html>
