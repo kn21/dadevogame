@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('5');
+    alert('6');
     //variables
     //update counter
     function newcount(count) {
@@ -37,14 +37,14 @@
     }
     //collisions class
     class Col {
-      constructor(img) {
-        this.img = img;
-        this.sprite = document.createElement(img);
+      constructor(name) {
+        this.name = name;
+        this.sprite = document.createElement('img');
         this.x = 1280;
         this.y = Math.floor(Math.random() * 721);
         this.dx = -1;
         this.v = 25;
-        this.sprite.src = this.img;
+        this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
         this.sprite.position = 'absolute';
@@ -119,6 +119,19 @@
     document.body.appendChild(devo);
     //Milkbone sprite
     const bone = new Col('milkbone.png');
+
+
+      //test
+      test = document.createElement('img');
+      test.src = 'milkbone.png';
+        test.width = 100;
+        test.height = 100;
+        test.position = 'absolute';
+        test.left = 1280+'px';
+        test.top = Math.floor(Math.random() * 721)+'px';
+        document.body.appendChild(test);
+
+      
     //change count
     var count = 0;
     //move
