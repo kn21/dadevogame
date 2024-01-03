@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('2');
+    alert('3');
     //variables
     //update counter
     function newcount(count) {
@@ -52,16 +52,13 @@
         this.sprite.style.top = this.y+'px';
         document.body.appendChild(this.sprite);
         this.move = this.move.bind(this);
-        this.start();
+        this.move();
       }
       //move sprite
         move() {
         this.x+= this.dx*this.v;
             this.sprite.style.left = this.x + 'px';
             requestAnimationFrame(() => this.move());
-        }
-        start() {
-          this.move();
         }
       //collision bool
       
@@ -126,7 +123,7 @@
     var count = 0;
     //move
     requestAnimationFrame(dmove);
-    bone.start();
+    requestAnimationFrame(bone.move());
   </script>
 </body>
 </html>
