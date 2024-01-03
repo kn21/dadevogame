@@ -42,6 +42,8 @@
         this.sprite = document.createElement('img');
         this.x = 1280;
         this.y = Math.floor(Math.random() * 721);
+        this.dx = -1;
+        this.v = 25;
         this.sprite.src = this.img;
         this.sprite.width = 100;
         this.sprite.height = 100;
@@ -49,6 +51,15 @@
         this.sprite.style.left = this.x+'px';
         this.sprite.style.top = this.y+'px';
         document.body.appendChild(this.sprite);
+      }
+      //move sprite
+      function loop(){
+        const move = () => {
+            this.x+= this.dx*this.v;
+            this.sprite.style.left = this.x + 'px';
+            requestAnimationFrame(move);
+        }
+        requestAnimationFrame(move);
       }
     }
     //move devo based on input key
@@ -70,7 +81,7 @@
       devosrc = 'devo.png';
       devo.src = devosrc;
     }
-    function move() {
+    function dmove() {
       if (x < 0 || x > 1280) {
         x = (x<0) ? 50 : 1230;
         dx = 0;
@@ -83,14 +94,8 @@
       y+= dy*devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
-      requestAnimationFrame(move);
-    }
-    //move bone
-    function bmove() {
-      bx+= dbx*bspeed;
-      bone.style.left = bx + 'px';
-      requestAnimationFrame(bmove);
-    }
+      requestAnimationFrame(dmove);
+    } 
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
@@ -110,12 +115,12 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
+    //Milkbone sprite
     const bone = new Col('milkbone.png');
     //change count
     var count = 0;
     //move
-    requestAnimationFrame(move);
-    requestAnimationFrame(bmove);
+    requestAnimationFrame(dmove);
   </script>
 </body>
 </html>
