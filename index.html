@@ -56,10 +56,10 @@
         function move() = {
             this.x+= this.dx*this.v;
             this.sprite.style.left = this.x + 'px';
-            //requestAnimationFrame(() => this.animate());
+            requestAnimationFrame(() => this.animate());
         }
         function start() {
-          this.animate();
+          this.move();
         }
       //collision bool
       
