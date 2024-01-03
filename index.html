@@ -53,15 +53,11 @@
         document.body.appendChild(this.sprite);
       }
       //move sprite
-      function loop(){
-        const move = () => {
-            this.x+= this.dx*this.v;
-            this.sprite.style.left = this.x + 'px';
-            requestAnimationFrame(move);
-        }
-        requestAnimationFrame(move);
-      }
+      
+
+      //collision bool
     }
+      //extend to milkbone class
     //move devo based on input key
     var keys = {};
     function keypress(event) {
