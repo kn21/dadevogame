@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('6');
+    alert('8');
     //variables
     //update counter
     function newcount(count) {
@@ -47,7 +47,7 @@
         this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
-        this.sprite.position = 'absolute';
+        this.sprite.style.position = 'absolute';
         this.sprite.style.left = this.x+'px';
         this.sprite.style.top = this.y+'px';
         document.body.appendChild(this.sprite);
@@ -122,15 +122,20 @@
 
 
       //test
+       mover(){
+        x++;
+          test.left = x+'px';
+         requestAnimationFrame(mover);
+      }
       test = document.createElement('img');
       test.src = 'milkbone.png';
         test.width = 100;
         test.height = 100;
-        test.position = 'absolute';
+        test.style.position = 'absolute';
         test.left = 1280+'px';
         test.top = Math.floor(Math.random() * 721)+'px';
         document.body.appendChild(test);
-
+requestAnimationFrame(mover);
       
     //change count
     var count = 0;
