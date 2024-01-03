@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('3');
+    alert('4');
     //variables
     //update counter
     function newcount(count) {
@@ -53,16 +53,16 @@
         document.body.appendChild(this.sprite);
       }
       //move sprite
-      function loop(){
         function move() = {
             this.x+= this.dx*this.v;
             this.sprite.style.left = this.x + 'px';
-            requestAnimationFrame(move);
+            requestAnimationFrame(() =? this.animate());
         }
-        requestAnimationFrame(move);
-      }
-
+        function start() {
+          this.animate();
+        }
       //collision bool
+      
     }
       //extend to milkbone class
     //move devo based on input key
@@ -124,6 +124,7 @@
     var count = 0;
     //move
     requestAnimationFrame(dmove);
+    bone.start();
   </script>
 </body>
 </html>
