@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('2');
+    alert('3');
     //variables
     //update counter
     function newcount(count) {
@@ -53,7 +53,14 @@
         document.body.appendChild(this.sprite);
       }
       //move sprite
-      
+      function loop(){
+        function move() = {
+            this.x+= this.dx*this.v;
+            this.sprite.style.left = this.x + 'px';
+            requestAnimationFrame(move);
+        }
+        requestAnimationFrame(move);
+      }
 
       //collision bool
     }
