@@ -53,7 +53,13 @@
         document.body.appendChild(this.sprite);
       }
       //move sprite
-        function move() = {
+        move() = {
+        this.x+= this.dx*this.v;
+            this.sprite.style.left = this.x + 'px';
+            requestAnimationFrame(() => this.animate());
+        }
+        start() {
+          this.move();
         }
       //collision bool
       
