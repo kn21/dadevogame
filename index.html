@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('1');
+    alert('2');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -116,13 +116,6 @@
     const bone = new Col('milkbone.png');
     //change count
     var count = 0;
-    if (bone.col == true) {
-      inccount(count);
-    }
-    if (count > 5) {
-      alert('its done'); 
-      bone.remove();
-    }
     //move
     requestAnimationFrame(dmove);
     requestAnimationFrame(bone.move());
