@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('5');
+    alert('6');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -87,11 +87,39 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
-  
+   //collisions class
+    class Col {
+      constructor(name) {
+        this.name = name;
+        this.col = false;
+        this.sprite = document.createElement('img');
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+        this.dx = -1;
+        this.v = 25;
+        this.sprite.src = this.name;
+        this.sprite.width = 100;
+        this.sprite.height = 100;
+        this.sprite.style.position = 'absolute';
+        this.sprite.style.left = this.x+'px';
+        this.sprite.style.top = this.y+'px';
+        document.body.appendChild(this.sprite);
+        this.move();
+        this.move = this.move.bind(this);
+        this.compare();
+        this.checkcol();
+        this.remove();
+      }
+      
+    }
+    //Milkbone sprite
+    //const bone = new Col('milkbone.png');
     //change count
     var count = 0;
+    
     //move
     requestAnimationFrame(dmove);
+    //requestAnimationFrame(bone.move());
   </script>
 </body>
 </html>
