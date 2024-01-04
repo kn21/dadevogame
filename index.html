@@ -24,23 +24,6 @@
     <script>
     //alert change
     alert('0');
-    //variables
-    //Devo sprite
-    var devo = document.createElement('img');
-    var devosrc = 'devo.png';
-    devo.src = devosrc;
-    devo.width = 100;
-    devo.height = 100;
-    devo.style.position = 'absolute';
-    //devo position
-    var x = 50;
-    var y = 350;
-    var dx = 0;
-    var dy = 0;
-    var devospeed = 25;
-    devo.style.left = x+'px';
-    devo.style.top = y+'px';
-    document.body.appendChild(devo);
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -50,36 +33,6 @@
     function inccount(count) {
       count+= 1;
       newcount(count);
-    }
-    //collisions class
-    class Col {
-      constructor(name) {
-        this.name = name;
-        this.col = false;
-        this.sprite = document.createElement('img');
-        this.x = 1280;
-        this.y = Math.floor(Math.random() * 721);
-        this.dx = -1;
-        this.v = 25;
-        this.sprite.src = this.name;
-        this.sprite.width = 100;
-        this.sprite.height = 100;
-        this.sprite.style.position = 'absolute';
-        this.sprite.style.left = this.x+'px';
-        this.sprite.style.top = this.y+'px';
-        document.body.appendChild(this.sprite);
-        this.move = this.move.bind(this);
-        this.move();
-        
-      }
-      //move sprite
-        move() {
-        this.x+= this.dx*this.v;
-            this.sprite.style.left = this.x + 'px';
-            requestAnimationFrame(() => this.move());
-        }
-      //collision bool
-     
     }
     //move devo based on input key
     var keys = {};
@@ -112,16 +65,64 @@
       y+= dy*devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
+      bone.compare(); //check col
       requestAnimationFrame(dmove);
     } 
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
+    //Devo sprite
+    var devo = document.createElement('img');
+    var devosrc = 'devo.png';
+    devo.src = devosrc;
+    devo.width = 100;
+    devo.height = 100;
+    devo.style.position = 'absolute';
+    //devo position
+    var x = 50;
+    var y = 350;
+    var dx = 0;
+    var dy = 0;
+    var devospeed = 25;
+    devo.style.left = x+'px';
+    devo.style.top = y+'px';
+    document.body.appendChild(devo);
+    //collisions class
+    class Col {
+      constructor(name) {
+        this.name = name;
+        this.col = false;
+        this.sprite = document.createElement('img');
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+        this.dx = -1;
+        this.v = 25;
+        this.sprite.src = this.name;
+        this.sprite.width = 100;
+        this.sprite.height = 100;
+        this.sprite.style.position = 'absolute';
+        this.sprite.style.left = this.x+'px';
+        this.sprite.style.top = this.y+'px';
+        document.body.appendChild(this.sprite);
+        this.move();
+        this.move = this.move.bind(this);
+        this.compare();
+        this.checkcol();
+        this.remove();
+      }
+      
+    }
     //Milkbone sprite
     const bone = new Col('milkbone.png');
     //change count
     var count = 0;
-    
+    if (bone.col==true) {
+      inccount(count);
+    }
+    if (count > 5) {
+      alert('its done'); 
+      bone.remove();
+    }
     //move
     requestAnimationFrame(dmove);
     requestAnimationFrame(bone.move());
