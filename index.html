@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('4');
+    alert('1');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -65,7 +65,7 @@
       y+= dy*devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
-      
+//      bone.compare(); //check col
       requestAnimationFrame(dmove);
     } 
     //get key
@@ -87,9 +87,79 @@
     devo.style.left = x+'px';
     devo.style.top = y+'px';
     document.body.appendChild(devo);
-    
+    //collisions class
+    class Col {
+      constructor(name) {
+        this.name = name;
+        this.col = false;
+        this.sprite = document.createElement('img');
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+        this.dx = -1;
+        this.v = 25;
+        this.sprite.src = this.name;
+        this.sprite.width = 100;
+        this.sprite.height = 100;
+        this.sprite.style.position = 'absolute';
+        this.sprite.style.left = this.x+'px';
+        this.sprite.style.top = this.y+'px';
+        document.body.appendChild(this.sprite);
+        this.move();
+        this.move = this.move.bind(this);
+        this.compare();
+        this.checkcol();
+        this.remove();
+      }
+      //collision bool
+      checkcol(rect1, rect2) {
+        return (rect1.x < rect2.x + rect2.width &&
+      rect1.x + rect1.width > rect2.x &&
+      rect1.y < rect2.y + rect2.height &&
+      rect1.y + rect1.height > rect2.y);
+      }
+      compare() {
+        const devoRect = {
+          x:x,
+          y:y,
+          width: devo.width,
+          height: devo.height
+        };
+        const colRect = {
+          x:this.x,
+          y:this.y,
+          width: this.width,
+          height: this.height
+          width: this.sprite.width,
+          height: this.sprite.height
+        };
+      }
+      if(checkcol(devoRect, colRect)) {
+        this.col = true;
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+      }
+      else {
+        this.col = false;
+      }
+      //remove
+      remove() {
+        document.body.removeChild(this.sprite);
+      }
+    }
+    //Milkbone sprite
+    const bone = new Col('milkbone.png');
+    //change count
+    var count = 0;
+    if (bone.col == true) {
+      inccount(count);
+    }
+    if (count > 5) {
+      alert('its done'); 
+      bone.remove();
+    }
     //move
     requestAnimationFrame(dmove);
+    requestAnimationFrame(bone.move());
   </script>
 </body>
 </html>
