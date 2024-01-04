@@ -70,6 +70,9 @@
         document.body.appendChild(this.sprite);
         this.move = this.move.bind(this);
         this.move();
+        this.compare();
+        this.checkcol();
+        this.remove();
       }
       //move sprite
         move() {
@@ -112,7 +115,6 @@
         document.body.removeChild(this.sprite);
       }
     }
-      //extend to milkbone class
     //move devo based on input key
     var keys = {};
     function keypress(event) {
@@ -123,7 +125,6 @@
         devosrc = 'devo_win.png';
         devo.src = devosrc;
       }
-
     }
     function keyrelease(event) {
       keys[event.keyCode] = false;
@@ -156,7 +157,7 @@
     //change count
     var count = 0;
     if (bone.col==true) {
-      inccount(count)
+      inccount(count);
     }
     if (count > 5) {
       alert('its done'); 
