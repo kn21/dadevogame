@@ -117,6 +117,11 @@
        remove() {
          document.body.removeChild(this.sprite);
        }
+      //reset
+      reset() {
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+      }
       //collision bool
        checkcol(rect1, rect2) {
          return (rect1.x < rect2.x + rect2.width &&
@@ -124,7 +129,24 @@
        rect1.y < rect2.y + rect2.height &&
        rect1.y + rect1.height > rect2.y);
        }
-      
+       
+       compare() {
+         const devoRect = {
+           x:x,
+           y:y,
+           width: devo.width,
+           height: devo.height
+         };
+         const colRect = {
+           x:this.x,
+           y:this.y,
+           width: this.width,
+           height: this.height
+           width: this.sprite.width,
+           height: this.sprite.height
+         };
+       }
+       
     }
     //Milkbone sprite
     const bone = new Col('milkbone.png');
