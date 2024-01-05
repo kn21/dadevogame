@@ -104,8 +104,8 @@
         this.sprite.style.left = this.cx+'px';
         this.sprite.style.top = this.cy+'px';
         document.body.appendChild(this.sprite);
-        this.move();
         this.move = this.move.bind(this);
+        this.move();
         this.compare();
         this.checkcol();
         this.remove();
