@@ -26,6 +26,7 @@
     alert('1');
       //random y
       function randy() {
+        setTimeout
         const seed = new Date().getTime();
         const random = seed % 721;
         return Math.floor(random);
@@ -123,8 +124,7 @@
         requestAnimationFrame(() => this.move());
       }
     }
-    //Milkbone sprite
-    const bone = new Col('milkbone.png');
+    
     //move devo based on input key
     var keys = {};
     function keypress(event) {
@@ -169,11 +169,19 @@
       devo.style.top = y + 'px';
       bone.compare(); //check col
       requestAnimationFrame(dmove);
-    } 
+    }
+
+      while(count < 6)
+        {
+          //Milkbone sprite
+    const bone = new Col('milkbone.png');
+        
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-   
+
+        }
+      
     //move
     requestAnimationFrame(dmove);
     requestAnimationFrame(bone.move());
