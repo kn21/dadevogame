@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('5');
+    alert('6');
       //collisions class
     class Col {
       constructor(name) {
@@ -46,10 +46,8 @@
       }
       //reset
       reset() {
-        alert('reset');
         this.x = 1280;
         this.y = Math.floor(Math.random() * 721);
-        alert('resetdon');
       }
       //move sprite
       move() {
@@ -72,21 +70,21 @@
         rect1.y + rect1.height > rect2.y);
         }
        compare() {
-          const devoRect = {
+          var devoRect = {
             x:x,
             y:y,
             width: devo.width,
             height: devo.height
           };
-          const colRect = {
+          var colRect = {
             x:this.x,
             y:this.y,
             width: this.sprite.width,
             height: this.sprite.height
           };
-          if(checkcol(devoRect, colRect)) {
+          if(this.checkcol(devoRect, colRect)) {
             this.col = true;
-            reset();
+            this.reset();
           }
           else {
             this.col = false;
@@ -126,7 +124,7 @@
       y+= dy*devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
-      //bone.compare(); //check col
+      bone.compare(); //check col
       requestAnimationFrame(dmove);
     } 
     //get key
