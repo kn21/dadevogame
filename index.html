@@ -112,7 +112,7 @@
       }
       //move sprite
         move() {
-        this.cx+= this.dx*this.cv;
+        this.cx+= this.cdx*this.cv;
             this.sprite.style.left = this.cx + 'px';
             requestAnimationFrame(() => this.move());
         }
