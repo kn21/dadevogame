@@ -26,7 +26,8 @@
     alert('0');
       //random y
       function randy() {
-        return Math.floor(Math.random() * 721);
+        var seed = new Date().getTime();
+        return Math.floor(Math.random() * seed) % 721;
       }
       //collisions class
     class Col {
@@ -93,7 +94,7 @@
         if(this.x < 0) {
           this.reset();
         }
-        this.compare();
+        //this.compare();
         requestAnimationFrame(() => this.move());
       }
     }
