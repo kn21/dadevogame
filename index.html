@@ -124,7 +124,9 @@
         requestAnimationFrame(() => this.move());
       }
     }
-    
+    //Milkbone sprite
+    const bone = new Col('milkbone.png');
+      
     //move devo based on input key
     var keys = {};
     function keypress(event) {
@@ -170,18 +172,10 @@
       bone.compare(); //check col
       requestAnimationFrame(dmove);
     }
-
-      while(count < 6)
-        {
-          //Milkbone sprite
-    const bone = new Col('milkbone.png');
         
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-
-        }
-      
     //move
     requestAnimationFrame(dmove);
     requestAnimationFrame(bone.move());
