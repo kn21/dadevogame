@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('5');
+    alert('1');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -105,6 +105,10 @@
         document.body.appendChild(this.sprite);
         this.move = this.move.bind(this);
         this.move();
+        this.col = false;
+        this.compare();
+        this.checkcol();
+        this.remove();
       }
       //move sprite
         move() {
