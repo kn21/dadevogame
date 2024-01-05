@@ -21,14 +21,14 @@
   <body>
   <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
  
-    <script src="path/to/seedrandom.min.js">
+    <script>
     //alert change
     alert('1');
       //random y
       function randy() {
         const seed = new Date().getTime();
-        const rng = new Math.seedrandom(seed);
-        return Math.floor(rng() * 721);
+        const random = seed % 721;
+        return Math.floor(random);
       }
       //collisions class
     class Col {
