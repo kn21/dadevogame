@@ -91,31 +91,28 @@
     class Col {
       constructor(name) {
         this.name = name;
-        this.col = false;
         this.sprite = document.createElement('img');
-        this.cx = 1280;
-        this.cy = Math.floor(Math.random() * 721);
-        this.cdx = -1;
-        this.cv = 25;
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+        this.dx = -1;
+        this.v = 25;
         this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
         this.sprite.style.position = 'absolute';
-        this.sprite.style.left = this.cx+'px';
-        this.sprite.style.top = this.cy+'px';
+        this.sprite.style.left = this.x+'px';
+        this.sprite.style.top = this.y+'px';
         document.body.appendChild(this.sprite);
         this.move = this.move.bind(this);
         this.move();
-        this.compare();
-        this.checkcol();
-        this.remove();
       }
       //move sprite
         move() {
-        this.cx+= this.cdx*this.cv;
-            this.sprite.style.left = this.cx + 'px';
+        this.x+= this.dx*this.v;
+            this.sprite.style.left = this.x + 'px';
             requestAnimationFrame(() => this.move());
         }
+      //collision bool
       
     }
     //Milkbone sprite
