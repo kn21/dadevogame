@@ -118,8 +118,7 @@
             this.sprite.style.left = this.x + 'px';
             requestAnimationFrame(() => this.move());
         }
-        if (x < 0 )
-        {
+        if (this.x < 0 ) {
           reset();
         }
        //remove
@@ -142,10 +141,10 @@
     if (bone.col == true) {
        inccount(count);
      }
-     if (count > 5) {
-       alert('its done'); 
-       bone.remove();
-     }
+    if (count > 5) {
+     alert('its done'); 
+     bone.remove();
+    }
     //move
     requestAnimationFrame(dmove);
     requestAnimationFrame(bone.move());
