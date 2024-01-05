@@ -138,7 +138,12 @@
         //test
            count++;
             newcount(count);
-
+         alert(count);
+          if (count > 0) {
+           alert('its done'); 
+           bone.remove();
+          }
+        
       
       }
     }
@@ -168,15 +173,7 @@
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-    
-    
-    //change count
-    
-    alert(count);
-    if (count > 0) {
-     alert('its done'); 
-     bone.remove();
-    }
+   
     //move
     requestAnimationFrame(dmove);
     requestAnimationFrame(bone.move());
