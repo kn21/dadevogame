@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('6');
+    alert('0');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -115,12 +115,13 @@
       //move sprite
       move() {
         this.x+= this.dx*this.v;
-            this.sprite.style.left = this.x + 'px';
-            requestAnimationFrame(() => this.move());
-      }
-      if (this.x < 0) {
-          this.reset();
-      }
+        this.sprite.style.left = this.x + 'px';
+        requestAnimationFrame(() => this.move());
+        if(this.x < 0) {
+          reset();
+        }
+      };
+      
       
     }
     //Milkbone sprite
