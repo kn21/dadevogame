@@ -60,7 +60,7 @@
         this.x = 1280;
         this.y = randy();
         this.dx = -1;
-        this.v = 20;
+        this.v = 25;
         this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
@@ -104,9 +104,20 @@
           width: this.sprite.width,
           height: this.sprite.height
         };
-        //col
+        //count
         if (this.checkcol(devoRect, colRect)) {
-          this.col = true;
+          count++;
+          newcount(count);
+          if (count == 25) {
+            alert('its done.');
+          }
+          if (count == 100) {
+            this.sprite.src = 'soap';
+            devosrc = 'devodefeat.png';
+            devo.src = devosrc;
+            alert('back to work');
+            this.remove();
+          }
           this.reset();
         }
       }
@@ -133,6 +144,10 @@
       dx = (keys[65] || keys[37]) ? -1 : (keys[68] || keys[39]) ? 1 : 0; //left right
       if (keys[32]) {
         devosrc = 'devo_win.png';
+        devo.src = devosrc;
+      }
+      if (keys[16]) {
+        devosrc = 'devo_hit.png';
         devo.src = devosrc;
       }
     }
@@ -162,16 +177,6 @@
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-    if(bone.col==true) {
-      count++;
-          newcount(count);
-          if (count == 5) {
-            alert('its done');
-            bone.remove();
-          }
-      bone.col=false;
-    }
-
     //animaton loop
     requestAnimationFrame(dmove);
     reqestAnimationFrame(bone.move);
