@@ -131,15 +131,12 @@
         devo.src = devosrc;
 
         //test
-            bone.col = true;
-            bone.reset();
+           inccount(count);
+            
           
 
       
       }
-        else {
-         bone.col = false;
-        }
     }
     function keyrelease(event) {
       keys[event.keyCode] = false;
@@ -180,9 +177,7 @@
     }
     //change count
     
-    if (bone.col == true) {
-       inccount(count);
-     }
+    
     if (count > 5) {
      alert('its done'); 
      bone.remove();
