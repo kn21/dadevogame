@@ -23,10 +23,11 @@
  
     <script>
     //alert change
-    alert('0');
+    alert('2');
     //random y pos
-    var  randy = Math.floor(Math.rnadom()*721;
-    
+    randy() {
+      return Math.floor(Math.rnadom()*721;
+    }
       //collisions class
     class Col {
       constructor(name) {
@@ -51,6 +52,16 @@
       reset() {
         this.x = 1280;
         this.y = randy();
+      }
+       //move sprite
+      move() {
+        this.x += this.dx*this.v;
+        this.sprite.style.left = this.x + 'px';
+        if(this.x < 0) {
+          this.reset();
+        }
+        //this.compare();
+        requestAnimationFrame(() => this.move());
       }
        //remove
        remove() {
@@ -85,16 +96,6 @@
             this.col = false;
           }
         }
-      //move sprite
-      move() {
-        this.x += this.dx*this.v;
-        this.sprite.style.left = this.x + 'px';
-        if(this.x < 0) {
-          this.reset();
-        }
-        //this.compare();
-        requestAnimationFrame(() => this.move());
-      }
     }
     //Milkbone sprite
     const bone = new Col('milkbone.png');
