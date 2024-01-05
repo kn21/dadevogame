@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('0');
+    alert('1');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -106,6 +106,24 @@
         this.move = this.move.bind(this);
         this.move();
         this.col = false;
+      }
+      //reset
+      reset() {
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+      }
+      //move sprite
+      move() {
+        this.x+= this.dx*this.v;
+            this.sprite.style.left = this.x + 'px';
+            requestAnimationFrame(() => this.move());
+      }
+      if (this.x < 0) {
+          reset();
+      }
+      //remove
+      remove() {
+         document.body.removeChild(this.sprite);
       }
       
     }
