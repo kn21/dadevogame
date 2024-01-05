@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('9');
+    alert('0');
     //random y pos
       randy(){
         return Math.floor(Math.rnadom()*721;
@@ -78,7 +78,7 @@
             height: this.sprite.height
           };
           if(this.checkcol(devoRect, colRect)) {
-            alert('col');
+            //alert('col');
             this.col = true;
             this.reset();
           }
@@ -93,7 +93,7 @@
         if(this.x < 0) {
           this.reset();
         }
-        this.compare();
+        //this.compare();
         requestAnimationFrame(() => this.move());
       }
     }
