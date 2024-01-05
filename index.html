@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('3');
+    alert('0');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -107,21 +107,25 @@
         this.move();
         this.col = false;
       }
+      //reset
+      reset() {
+        this.x = 1280;
+        this.y = Math.floor(Math.random() * 721);
+      }
       //move sprite
         move() {
         this.x+= this.dx*this.v;
             this.sprite.style.left = this.x + 'px';
             requestAnimationFrame(() => this.move());
         }
+        if (x < 0 )
+        {
+          reset();
+        }
        //remove
        remove() {
          document.body.removeChild(this.sprite);
        }
-      //reset
-      reset() {
-        this.x = 1280;
-        this.y = Math.floor(Math.random() * 721);
-      }
       //collision bool
        checkcol(rect1, rect2) {
          return (rect1.x < rect2.x + rect2.width &&
@@ -130,22 +134,6 @@
        rect1.y + rect1.height > rect2.y);
        }
        
-       compare() {
-         const devoRect = {
-           x:x,
-           y:y,
-           width: devo.width,
-           height: devo.height
-         };
-         const colRect = {
-           x:this.x,
-           y:this.y,
-           width: this.width,
-           height: this.height
-           width: this.sprite.width,
-           height: this.sprite.height
-         };
-       }
        
     }
     //Milkbone sprite
