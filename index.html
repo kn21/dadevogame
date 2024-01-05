@@ -35,14 +35,8 @@
       var countspan = document.getElementById('varcount');
       countspan.textContent = count;
     }
-    //increase count
-    function inccount(count) {
-      count+= 1;
-      newcount(count);
-    }
       //count
-      var count = -1;
-      count = inccount(count);
+      var count = 0;
       //Devo sprite
     var devo = document.createElement('img');
     var devosrc = 'devo.png';
@@ -142,8 +136,8 @@
         devo.src = devosrc;
 
         //test
-           inccount(count);
-            alert(count);
+           count++;
+            newcount(count);
           
 
       
@@ -180,7 +174,7 @@
     //change count
     
     
-    if (count > 0) {
+    if (count > 1) {
      alert('its done'); 
      bone.remove();
     }
