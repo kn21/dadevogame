@@ -119,7 +119,6 @@
       move() {
         this.x += this.dx * this.v;
         this.sprite.style.left = this.x + 'px';
-         ////////////////
         if (this.x < 0) {
           this.reset();
         }
@@ -170,7 +169,7 @@
     document.addEventListener('keyup', keyrelease);
     //move
     requestAnimationFrame(dmove);
-    //////////////////////////
+    reqestAnimationFrame(bone.move);
   </script>
 </body>
 </html>
