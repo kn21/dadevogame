@@ -31,9 +31,6 @@
         return Math.floor(random);
       }
       //update counter
-      function setcount(count){
-        return count;
-      }
     function newcount(count) {
       var countspan = document.getElementById('varcount');
       countspan.textContent = count;
@@ -42,11 +39,10 @@
     function inccount(count) {
       count+= 1;
       newcount(count);
-      setcount(count);
     }
       //count
-      var count = 0;
-      count = setcount(count);
+      var count = -1;
+      count = inccount(count);
       //Devo sprite
     var devo = document.createElement('img');
     var devosrc = 'devo.png';
