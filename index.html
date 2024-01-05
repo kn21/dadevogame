@@ -119,10 +119,11 @@
       move() {
         this.x += this.dx * this.v;
         this.sprite.style.left = this.x + 'px';
-        this.compare(); ////////////////
+         ////////////////
         if (this.x < 0) {
           this.reset();
         }
+        this.compare();
         requestAnimationFrame(() => this.move());
       }
     }
