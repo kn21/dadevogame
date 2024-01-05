@@ -30,6 +30,22 @@
         const random = seed % 721;
         return Math.floor(random);
       }
+      //Devo sprite
+    var devo = document.createElement('img');
+    var devosrc = 'devo.png';
+    devo.src = devosrc;
+    devo.width = 100;
+    devo.height = 100;
+    devo.style.position = 'absolute';
+    //devo position
+    var x = 50;
+    var y = 350;
+    var dx = 0;
+    var dy = 0;
+    var devospeed = 25;
+    devo.style.left = x+'px';
+    devo.style.top = y+'px';
+    document.body.appendChild(devo);
       //collisions class
     class Col {
       constructor(name) {
@@ -96,7 +112,7 @@
         if(this.x < 0) {
           this.reset();
         }
-        this.compare();
+        //this.compare();
         requestAnimationFrame(() => this.move());
       }
     }
@@ -139,22 +155,7 @@
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-    //Devo sprite
-    var devo = document.createElement('img');
-    var devosrc = 'devo.png';
-    devo.src = devosrc;
-    devo.width = 100;
-    devo.height = 100;
-    devo.style.position = 'absolute';
-    //devo position
-    var x = 50;
-    var y = 350;
-    var dx = 0;
-    var dy = 0;
-    var devospeed = 25;
-    devo.style.left = x+'px';
-    devo.style.top = y+'px';
-    document.body.appendChild(devo);
+    
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
