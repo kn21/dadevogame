@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('1');
+    alert('0');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -65,7 +65,7 @@
       y+= dy*devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
-//      bone.compare(); //check col
+      bone.compare(); //check col
       requestAnimationFrame(dmove);
     } 
     //get key
@@ -132,7 +132,7 @@
         rect1.y < rect2.y + rect2.height &&
         rect1.y + rect1.height > rect2.y);
         }
-      compare() {
+       compare() {
           const devoRect = {
             x:x,
             y:y,
@@ -145,13 +145,13 @@
             width: this.sprite.width,
             height: this.sprite.height
           };
-        if(checkcol(devoRect, colRect)) {
-          this.col = true;
-          reset();
-        }
-        else {
-          this.col = false;
-        }
+          if(checkcol(devoRect, colRect)) {
+            this.col = true;
+            reset();
+          }
+          else {
+            this.col = false;
+          }
         }
     }
     //Milkbone sprite
