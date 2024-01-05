@@ -104,14 +104,9 @@
           width: this.sprite.width,
           height: this.sprite.height
         };
-        //count
+        //col
         if (this.checkcol(devoRect, colRect)) {
-          count++;
-          newcount(count);
-          if (count == 5) {
-            alert('its done');
-            this.remove();
-          }
+          this.col = true;
           this.reset();
         }
       }
@@ -167,6 +162,16 @@
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
+    if(bone.col==true) {
+      count++;
+          newcount(count);
+          if (count == 5) {
+            alert('its done');
+            bone.remove();
+          }
+      bone.col=false;
+    }
+
     //animaton loop
     requestAnimationFrame(dmove);
     reqestAnimationFrame(bone.move);
