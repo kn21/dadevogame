@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('2');
+    alert('3');
       //collisions class
     class Col {
       constructor(name) {
@@ -51,9 +51,10 @@
       }
       //move sprite
       move() {
-        this.x+= this.dx*this.v;
+        this.x += this.dx*this.v;
         this.sprite.style.left = this.x + 'px';
         if(this.x < 0) {
+          alert('wall');
           reset();
         }
         requestAnimationFrame(() => this.move());
