@@ -22,31 +22,27 @@
   <p id="counter" class="counter">Counter: <span id="varcount">0</span></p>
 
   <script>
-    // Random y function
+    //rand y function
     function randy() {
       const seed = new Date().getTime();
       const random = seed % 721;
       return Math.floor(random);
     }
 
-    // Update counter function
+    //count
+    var count = 0;
     function newcount(count) {
       var countspan = document.getElementById('varcount');
       countspan.textContent = count;
     }
-
-    // Count variable
-    var count = 0;
-
-    // Devo sprite
+    
+    //devo sprite
     var devo = document.createElement('img');
     var devosrc = 'devo.png';
     devo.src = devosrc;
     devo.width = 100;
     devo.height = 100;
     devo.style.position = 'absolute';
-    
-    // Devo position
     var x = 50;
     var y = 350;
     var dx = 0;
@@ -56,7 +52,7 @@
     devo.style.top = y + 'px';
     document.body.appendChild(devo);
 
-    // Collisions class
+    //collisions class
     class Col {
       constructor(name) {
         this.name = name;
@@ -64,7 +60,7 @@
         this.x = 1280;
         this.y = randy();
         this.dx = -1;
-        this.v = 15;
+        this.v = 20;
         this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
@@ -72,24 +68,21 @@
         this.sprite.style.left = this.x + 'px';
         this.sprite.style.top = this.y + 'px';
         document.body.appendChild(this.sprite);
-        this.move();
+        this.move(); /////////////////////////
         this.col = false;
       }
-
-      // Reset function
+      //reset pos
       reset() {
         this.x = 1280;
         this.y = randy();
-        this.sprite.style.left = this.x + 'px';
+        this.sprite.style.left = this.x + 'px'; ////////////////////
         this.sprite.style.top = this.y + 'px';
       }
-
-      // Remove function
+      //remove
       remove() {
         document.body.removeChild(this.sprite);
       }
-
-      // Check collision function
+      //collision
       checkcol(rect1, rect2) {
         return (
           rect1.x < rect2.x + rect2.width &&
@@ -98,8 +91,6 @@
           rect1.y + rect1.height > rect2.y
         );
       }
-
-      // Compare function
       compare() {
         var devoRect = {
           x: x,
@@ -113,9 +104,8 @@
           width: this.sprite.width,
           height: this.sprite.height
         };
-
+        //count
         if (this.checkcol(devoRect, colRect)) {
-          alert('col');
           count++;
           newcount(count);
           if (count == 5) {
@@ -125,29 +115,22 @@
           this.reset();
         }
       }
-
-      // Move function
+      //move
       move() {
         this.x += this.dx * this.v;
         this.sprite.style.left = this.x + 'px';
-
-        // Check collision during movement
-        this.compare();
-
-        // If the sprite goes out of bounds, reset its position
+        this.compare(); ////////////////
         if (this.x < 0) {
           this.reset();
         }
-
-        // Continue moving
         requestAnimationFrame(() => this.move());
       }
     }
-
-    // Milkbone sprite
+    
+    //milkbone sprite
     const bone = new Col('milkbone.png');
 
-    // Move devo based on input key
+    //move devo
     var keys = {};
     function keypress(event) {
       keys[event.keyCode] = true;
@@ -158,17 +141,13 @@
         devo.src = devosrc;
       }
     }
-
     function keyrelease(event) {
       keys[event.keyCode] = false;
-      dx = 0
-
-;
+      dx = 0;
       dy = 0;
       devosrc = 'devo.png';
       devo.src = devosrc;
     }
-
     function dmove() {
       if (x < 0 || x > 1280) {
         x = (x < 0) ? 50 : 1230;
@@ -182,16 +161,15 @@
       y += dy * devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
-      bone.compare(); // Check collision
+      bone.compare(); //heck col
       requestAnimationFrame(dmove);
     } 
-
-    // Get key
+    //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-
-    // Move
+    //move
     requestAnimationFrame(dmove);
+    //////////////////////////
   </script>
 </body>
 </html>
