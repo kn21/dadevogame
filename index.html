@@ -23,20 +23,16 @@
  
     <script>
     //alert change
-    alert('3');
-    //random y pos
-    randy() {
-      return Math.floor(Math.rnadom()*721;
-    }
+    alert('7');
       //collisions class
     class Col {
       constructor(name) {
         this.name = name;
         this.sprite = document.createElement('img');
         this.x = 1280;
-        this.y = randy();
+        this.y = Math.floor(Math.random() * 721);
         this.dx = -1;
-        this.v = 15;
+        this.v = 25;
         this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
@@ -51,7 +47,16 @@
       //reset
       reset() {
         this.x = 1280;
-        this.y = randy();
+        this.y = Math.floor(Math.random() * 721);
+      }
+      //move sprite
+      move() {
+        this.x += this.dx*this.v;
+        this.sprite.style.left = this.x + 'px';
+        if(this.x < 0) {
+          this.reset();
+        }
+        requestAnimationFrame(() => this.move());
       }
        //remove
        remove() {
@@ -78,7 +83,7 @@
             height: this.sprite.height
           };
           if(this.checkcol(devoRect, colRect)) {
-            //alert('col');
+            alert('col');
             this.col = true;
             this.reset();
           }
@@ -86,16 +91,6 @@
             this.col = false;
           }
         }
-       //move sprite
-      move() {
-        this.x += this.dx*this.v;
-        this.sprite.style.left = this.x + 'px';
-        if(this.x < 0) {
-          this.reset();
-        }
-        this.compare();
-        requestAnimationFrame(() => this.move());
-      }
     }
     //Milkbone sprite
     const bone = new Col('milkbone.png');
