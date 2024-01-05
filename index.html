@@ -23,14 +23,18 @@
  
     <script>
     //alert change
-    alert('7');
+    alert('0');
+      //random y
+      randy() {
+        return Math.floor(Math.random() * 721);
+      }
       //collisions class
     class Col {
       constructor(name) {
         this.name = name;
         this.sprite = document.createElement('img');
         this.x = 1280;
-        this.y = Math.floor(Math.random() * 721);
+        this.y = randy();
         this.dx = -1;
         this.v = 15;
         this.sprite.src = this.name;
@@ -47,7 +51,7 @@
       //reset
       reset() {
         this.x = 1280;
-        this.y = Math.floor(Math.random() * 721);
+        this.y = randy();
       }
       //move sprite
       move() {
