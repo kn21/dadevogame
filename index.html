@@ -134,7 +134,28 @@
        rect1.y + rect1.height > rect2.y);
        }
        
-       
+       compare() {
+         const devoRect = {
+           x:x,
+           y:y,
+           width: devo.width,
+           height: devo.height
+         };
+         const colRect = {
+           x:this.x,
+           y:this.y,
+           width: this.sprite.width,
+           height: this.sprite.height
+         };
+       }
+      
+       if(checkcol(devoRect, colRect)) {
+         this.col = true;
+         reset();
+       }
+       else {
+         this.col = false;
+       }
     }
     //Milkbone sprite
     const bone = new Col('milkbone.png');
