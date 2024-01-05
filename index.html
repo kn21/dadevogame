@@ -114,6 +114,7 @@
         }
         this.compare();
         requestAnimationFrame(() => this.move());
+      }
     }
     //Milkbone sprite
     const bone = new Col('milkbone.png');
@@ -127,12 +128,15 @@
         devosrc = 'devo_win.png';
         devo.src = devosrc;
 
-        
+        //test
+            this.col = true;
+            this.reset();
+          
 
       
       }
         else {
-         
+         this.col = false;
         }
     }
     function keyrelease(event) {
