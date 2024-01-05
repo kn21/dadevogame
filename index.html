@@ -75,7 +75,8 @@
       reset() {
         this.x = 1280;
         this.y = randy();
-        ////////////////////
+        this.sprite.style.left = this.x + 'px'; 
+        this.sprite.style.top = this.y + 'px';
       }
       //remove
       remove() {
@@ -166,9 +167,7 @@
     //get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-    //move
-    requestAnimationFrame(dmove);
-    reqestAnimationFrame(bone.move);
+   
   </script>
 </body>
 </html>
