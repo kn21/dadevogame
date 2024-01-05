@@ -32,7 +32,7 @@
         this.x = 1280;
         this.y = Math.floor(Math.random() * 721);
         this.dx = -1;
-        this.v = 25;
+        this.v = 15;
         this.sprite.src = this.name;
         this.sprite.width = 100;
         this.sprite.height = 100;
@@ -83,7 +83,7 @@
             height: this.sprite.height
           };
           if(this.checkcol(devoRect, colRect)) {
-            alert('col');
+            //alert('col');
             this.col = true;
             this.reset();
           }
