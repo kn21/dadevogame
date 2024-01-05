@@ -5,55 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Da Devo Game</title>
   <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        background-image: url('bg_grass.jpg');
-        background-size: cover;
-      }
-      .counter {
-        font-family: "Comic Sans MS";
-        color: white;
-        font-size: 24px;
-      }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-image: url('bg_grass.jpg');
+      background-size: cover;
+    }
+    .counter {
+      font-family: "Comic Sans MS";
+      color: white;
+      font-size: 24px;
+    }
   </style>
-  </head>
-  <body>
-  <p id = 'counter' class = counter>Counter: <span id = 'varcount'>0</span></p>
- 
-    <script>
-    //alert change
-    alert('1');
-      //random y
-      function randy() {
-        const seed = new Date().getTime();
-        const random = seed % 721;
-        return Math.floor(random);
-      }
-      //update counter
+</head>
+<body>
+  <p id="counter" class="counter">Counter: <span id="varcount">0</span></p>
+
+  <script>
+    // Random y function
+    function randy() {
+      const seed = new Date().getTime();
+      const random = seed % 721;
+      return Math.floor(random);
+    }
+
+    // Update counter function
     function newcount(count) {
       var countspan = document.getElementById('varcount');
       countspan.textContent = count;
     }
-      //count
-      var count = 0;
-      //Devo sprite
+
+    // Count variable
+    var count = 0;
+
+    // Devo sprite
     var devo = document.createElement('img');
     var devosrc = 'devo.png';
     devo.src = devosrc;
     devo.width = 100;
     devo.height = 100;
     devo.style.position = 'absolute';
-    //devo position
+    
+    // Devo position
     var x = 50;
     var y = 350;
     var dx = 0;
     var dy = 0;
     var devospeed = 25;
-    devo.style.left = x+'px';
-    devo.style.top = y+'px';
+    devo.style.left = x + 'px';
+    devo.style.top = y + 'px';
     document.body.appendChild(devo);
-      //collisions class
+
+    // Collisions class
     class Col {
       constructor(name) {
         this.name = name;
@@ -66,79 +69,88 @@
         this.sprite.width = 100;
         this.sprite.height = 100;
         this.sprite.style.position = 'absolute';
-        this.sprite.style.left = this.x+'px';
-        this.sprite.style.top = this.y+'px';
+        this.sprite.style.left = this.x + 'px';
+        this.sprite.style.top = this.y + 'px';
         document.body.appendChild(this.sprite);
-        this.move = this.move.bind(this);
         this.move();
-        this.compare = this.compare.bind(this);
         this.col = false;
       }
-      //reset
+
+      // Reset function
       reset() {
         this.x = 1280;
         this.y = randy();
       }
-       //remove
-       remove() {
-         document.body.removeChild(this.sprite);
-       }
-      //collision bool
-       checkcol(rect1, rect2) {
-         return (rect1.x < rect2.x + rect2.width &&
-       rect1.x + rect1.width > rect2.x &&
-        rect1.y < rect2.y + rect2.height &&
-        rect1.y + rect1.height > rect2.y);
-        }
-       compare() {
-          var devoRect = {
-            x:x,
-            y:y,
-            width: devo.width,
-            height: devo.height
-          };
-          var colRect = {
-            x:this.x,
-            y:this.y,
-            width: this.sprite.width,
-            height: this.sprite.height
-          };
-          if(this.checkcol(devoRect, colRect)) {
-            alert('col');
-            count++;
-            newcount(count);
-            if (count == 5) {
-             alert('its done'); 
-             this.remove();
-            }
-            this.reset();
+
+      // Remove function
+      remove() {
+        document.body.removeChild(this.sprite);
+      }
+
+      // Check collision function
+      checkcol(rect1, rect2) {
+        return (
+          rect1.x < rect2.x + rect2.width &&
+          rect1.x + rect1.width > rect2.x &&
+          rect1.y < rect2.y + rect2.height &&
+          rect1.y + rect1.height > rect2.y
+        );
+      }
+
+      // Compare function
+      compare() {
+        var devoRect = {
+          x: x,
+          y: y,
+          width: devo.width,
+          height: devo.height
+        };
+        var colRect = {
+          x: this.x,
+          y: this.y,
+          width: this.sprite.width,
+          height: this.sprite.height
+        };
+
+        if (this.checkcol(devoRect, colRect)) {
+          alert('col');
+          count++;
+          newcount(count);
+          if (count == 5) {
+            alert('its done');
+            this.remove();
           }
-          
+          this.reset();
         }
-      //move sprite
+      }
+
+      // Move function
       move() {
-        this.x += this.dx*this.v;
+        this.x += this.dx * this.v;
         this.sprite.style.left = this.x + 'px';
-        if(this.x < 0) {
+        if (this.x < 0) {
           this.reset();
         }
         this.compare();
         requestAnimationFrame(() => this.move());
       }
     }
-    //Milkbone sprite
+
+    // Milkbone sprite
     const bone = new Col('milkbone.png');
-    //move devo based on input key
+
+    // Move devo based on input key
     var keys = {};
     function keypress(event) {
       keys[event.keyCode] = true;
-      dy = (keys[38]||keys[87])? -1 : (keys[83]||keys[40])? 1 : 0; //up down
-      dx = (keys[65]||keys[37])? -1 : (keys[68]||keys[39])? 1 : 0; //left right
+      dy = (keys[38] || keys[87]) ? -1 : (keys[83] || keys[40]) ? 1 : 0; //up down
+      dx = (keys[65] || keys[37]) ? -1 : (keys[68] || keys[39]) ? 1 : 0; //left right
       if (keys[32]) {
         devosrc = 'devo_win.png';
-        devo.src = devosrc;      
+        devo.src = devosrc;
       }
     }
+
     function keyrelease(event) {
       keys[event.keyCode] = false;
       dx = 0;
@@ -146,29 +158,30 @@
       devosrc = 'devo.png';
       devo.src = devosrc;
     }
+
     function dmove() {
       if (x < 0 || x > 1280) {
-        x = (x<0) ? 50 : 1230;
+        x = (x < 0) ? 50 : 1230;
         dx = 0;
       }
       if (y < 0 || y > 720) {
-        y = (y<0) ? 50 : 670;
+        y = (y < 0) ? 50 : 670;
         dy = 0;
       }
-      x+= dx*devospeed;
-      y+= dy*devospeed;
+      x += dx * devospeed;
+      y += dy * devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
       bone.compare(); //check col
       requestAnimationFrame(dmove);
-    } 
-    //get key
+    }
+
+    // Get key
     document.addEventListener('keydown', keypress);
     document.addEventListener('keyup', keyrelease);
-   
-    //move
+
+    // Move
     requestAnimationFrame(dmove);
-    requestAnimationFrame(bone.move());
   </script>
 </body>
 </html>
