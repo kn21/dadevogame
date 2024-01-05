@@ -68,15 +68,14 @@
         this.sprite.style.left = this.x + 'px';
         this.sprite.style.top = this.y + 'px';
         document.body.appendChild(this.sprite);
-        this.move(); /////////////////////////
+        this.move();
         this.col = false;
       }
       //reset pos
       reset() {
         this.x = 1280;
         this.y = randy();
-        this.sprite.style.left = this.x + 'px'; ////////////////////
-        this.sprite.style.top = this.y + 'px';
+        ////////////////////
       }
       //remove
       remove() {
@@ -161,7 +160,7 @@
       y += dy * devospeed;
       devo.style.left = x + 'px';
       devo.style.top = y + 'px';
-      bone.compare(); //heck col
+      bone.compare(); //check col
       requestAnimationFrame(dmove);
     } 
     //get key
