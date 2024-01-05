@@ -39,9 +39,11 @@
     function inccount(count) {
       count+= 1;
       newcount(count);
+      return count;
     }
       //count
       var count = 0;
+      count = inccount(count);
       //Devo sprite
     var devo = document.createElement('img');
     var devosrc = 'devo.png';
