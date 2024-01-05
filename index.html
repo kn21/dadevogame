@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('2');
+    alert('3');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -117,6 +117,9 @@
         this.x+= this.dx*this.v;
             this.sprite.style.left = this.x + 'px';
             requestAnimationFrame(() => this.move());
+      }
+      if (this.x < 0) {
+          reset();
       }
       
     }
