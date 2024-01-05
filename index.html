@@ -23,7 +23,7 @@
  
     <script>
     //alert change
-    alert('5');
+    alert('6');
     //update counter
     function newcount(count) {
       var countspan = document.getElementById('varcount');
@@ -108,12 +108,12 @@
         this.col = false;
       }
       //reset
-      this.reset() {
+      reset() {
         this.x = 1280;
         this.y = Math.floor(Math.random() * 721);
       }
       //move sprite
-      this.move() {
+      move() {
         this.x+= this.dx*this.v;
             this.sprite.style.left = this.x + 'px';
             requestAnimationFrame(() => this.move());
